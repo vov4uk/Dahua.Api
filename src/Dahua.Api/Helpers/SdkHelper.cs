@@ -12,7 +12,7 @@ namespace Dahua.Api.Helpers
         /// en-us language
         /// Error information corresponding to English error codes
         /// </summary>
-        private static Dictionary<EM_ErrorCode, string> en_us_String = new Dictionary<EM_ErrorCode, string>()
+        private static readonly Dictionary<EM_ErrorCode, string> en_us_String = new Dictionary<EM_ErrorCode, string>()
         {
             {EM_ErrorCode.NET_NOERROR,"No error"},
             {EM_ErrorCode.NET_ERROR,"Unknown error"},
@@ -219,7 +219,7 @@ namespace Dahua.Api.Helpers
             {EM_ErrorCode.NET_ERROR_JSON_REQUEST,"Generated json string is error"},
             {EM_ErrorCode.NET_ERROR_JSON_RESPONSE,"The responding json string is error"},
             {EM_ErrorCode.NET_ERROR_VERSION_HIGHER,"The protocol version is lower than current version"},
-            {EM_ErrorCode.NET_SPARE_NO_CAPACITY,"Hotspare disk operation failed. The capacity is low"},
+            {EM_ErrorCode.NET_SPARE_NO_CAPACITY,"Hot spare disk operation failed. The capacity is low"},
             {EM_ErrorCode.NET_ERROR_SOURCE_IN_USE,"Display source is used by other output"},
             {EM_ErrorCode.NET_ERROR_REAVE,"advanced users grab low-level user resource"},
             {EM_ErrorCode.NET_ERROR_NETFORBID,"net forbid"},
@@ -230,14 +230,14 @@ namespace Dahua.Api.Helpers
             {EM_ErrorCode.NET_ERROR_OPERATION_OVERTIME,"operation over time"},
             {EM_ErrorCode.NET_ERROR_SENIOR_VALIDATE_FAILED,"senior validation failure"},
             {EM_ErrorCode.NET_ERROR_DEVICE_ID_NOT_EXIST,"device ID is not exist"},
-            {EM_ErrorCode.NET_ERROR_UNSUPPORTED,"unsupport operation"},
+            {EM_ErrorCode.NET_ERROR_UNSUPPORTED,"unsupported operation"},
             {EM_ErrorCode.NET_ERROR_PROXY_DLLLOAD,"proxy dll load error"},
             {EM_ErrorCode.NET_ERROR_PROXY_ILLEGAL_PARAM,"proxy user parameter is not legal"},
             {EM_ErrorCode.NET_ERROR_PROXY_INVALID_HANDLE,"handle invalid"},
             {EM_ErrorCode.NET_ERROR_PROXY_LOGIN_DEVICE_ERROR,"login device error"},
             {EM_ErrorCode.NET_ERROR_PROXY_START_SERVER_ERROR,"start proxy server error"},
             {EM_ErrorCode.NET_ERROR_SPEAK_FAILED,"request speak failed"},
-            {EM_ErrorCode.NET_ERROR_NOT_SUPPORT_F6,"unsupport F6"},
+            {EM_ErrorCode.NET_ERROR_NOT_SUPPORT_F6,"unsupported F6"},
             {EM_ErrorCode.NET_ERROR_CD_UNREADY,"CD is not ready"},
             {EM_ErrorCode.NET_ERROR_DIR_NOT_EXIST,"Directory does not exist"},
             {EM_ErrorCode.NET_ERROR_UNSUPPORTED_SPLIT_MODE,"The device does not support the segmentation model"},
@@ -303,7 +303,7 @@ namespace Dahua.Api.Helpers
             switch (result)
             {
                 case int val when val <= 0:
-                case long lval when lval <= 0:
+                case long long_value when long_value <= 0:
                 case bool def when !def:
                     {
                         if (throwException)

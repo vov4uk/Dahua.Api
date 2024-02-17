@@ -66,7 +66,7 @@
         /// </summary>
         FTP_PROTO_CFG = 0x000F,
         /// <summary>
-        /// Plaform embedded setup. Now the channel parameter represents the platform type.  channel=4:Bell alcatel;channel=10: Netview;channel=11:U CNC  channel = 51 AMP
+        /// Platform embedded setup. Now the channel parameter represents the platform type. channel=4:Bell alcoate;channel=10: Net view;channel=11:U CNC channel = 51 AMP
         /// </summary>
         INTERVIDEO_CFG = 0x0010,
         /// <summary>
@@ -142,7 +142,7 @@
         /// </summary>
         ALARM_CENTER_CFG = 0x0022,
         /// <summary>
-        /// VIdeo OSD setup
+        /// Video OSD setup
         /// </summary>
         VIDEO_OSD_CFG = 0x0023,
         /// <summary>
@@ -202,7 +202,7 @@
         /// </summary>
         POINT_CFG = 0x0036,
         /// <summary>
-        /// IP conflication configurationIp
+        /// IP COLLISION configuration
         /// </summary>
         IP_COLLISION_CFG = 0x0037,
         /// <summary>
@@ -242,7 +242,7 @@
         /// </summary>
         ENCODER_CFG = 0x0040,
         /// <summary>
-        /// TV adjust configuration(Now the channel parameter represents the TV numble(from 0), Structure DHDEV_TVADJUST_CFG)
+        /// TV adjust configuration(Now the channel parameter represents the TV number (from 0), Structure DHDEV_TVADJUST_CFG)
         /// </summary>
         TV_ADJUST_CFG = 0x0041,
         /// <summary>
@@ -266,7 +266,7 @@
         /// </summary>
         SIP_CFG = 0x0046,
         /// <summary>
-        /// wifi ap configuration
+        /// WIFI ap configuration
         /// </summary>
         VICHILE_WIFI_AP_CFG = 0x0047,
         /// <summary>
@@ -282,7 +282,7 @@
         /// </summary>
         MACHINE_CFG = 0x004A,
         /// <summary>
-        /// MACconflication configuration(Structure ALARM_MAC_COLLISION_CFG)
+        /// MAC COLLISIONs configuration(Structure ALARM_MAC_COLLISION_CFG)
         /// </summary>
         MAC_COLLISION_CFG = 0x004B,
         /// <summary>
@@ -358,7 +358,7 @@
         /// </summary>
         IPV6_CFG = 0x005e,
         /// <summary>
-        /// Snmp config(struct DHDEV_NET_SNMP_CFG)
+        /// SNMP config(struct DHDEV_NET_SNMP_CFG)
         /// </summary>
         SNMP_CFG = 0x005f,
         /// <summary>
@@ -382,11 +382,11 @@
         /// </summary>
         ISCSI_CFG = 0x0064,
         /// <summary>
-        /// wifi config(struc DHDEV_WIRELESS_ROUTING_CFG)
+        /// WIFI config(struct DHDEV_WIRELESS_ROUTING_CFG)
         /// </summary>
         WIRELESS_ROUTING_CFG = 0x0065,
         /// <summary>
-        /// enclosure config(stuct DHDEV_ENCLOSURE_CFG)
+        /// enclosure config(struct DHDEV_ENCLOSURE_CFG)
         /// </summary>
         ENCLOSURE_CFG = 0x0066,
         /// <summary>
@@ -402,7 +402,7 @@
         /// </summary>
         FIRE_ALARM_CFG = 0x0069,
         /// <summary>
-        /// local alarm name config(string like "Name1&name2&name3...")
+        /// local alarm name config(string like "Name1&amp;name2&amp;name3...")
         /// </summary>
         LOCALALARM_NAME_CFG = 0x006a,
         /// <summary>
@@ -426,7 +426,7 @@
         /// </summary>
         MACIPFILTER_CFG = 0x0074,
         /// <summary>
-        /// stream encrypt(encryot plan)(struct DHEDV_STREAM_ENCRYPT)
+        /// stream encrypt(encrypt plan)(struct DHEDV_STREAM_ENCRYPT)
         /// </summary>
         STREAM_ENCRYPT_TIME_CFG = 0x0075,
         /// <summary>
@@ -442,11 +442,11 @@
         /// </summary>
         DECODER_URL_CFG = 0x0078,
         /// <summary>
-        /// toyr enable config(struct DHDEV_TOUR_ENABLE_CFG)
+        /// tour enable config(struct DHDEV_TOUR_ENABLE_CFG)
         /// </summary>
         TOUR_ENABLE_CFG = 0x0079,
         /// <summary>
-        /// wifi ap extern config(struct DHDEV_VEHICLE_WIFI_AP_CFG_EX)
+        /// WIFI ap extern config(struct DHDEV_VEHICLE_WIFI_AP_CFG_EX)
         /// </summary>
         VICHILE_WIFI_AP_CFG_EX = 0x007a,
         /// <summary>

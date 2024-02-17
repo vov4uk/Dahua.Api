@@ -7,7 +7,7 @@ namespace Dahua.Api.Data
     /// <summary>
     /// Remote File
     /// </summary>
-    /// <seealso cref="Dahua.Api.Data.IRemoteFile" />
+    /// <seealso cref="IRemoteFile" />
     public class RemoteFile: IRemoteFile
     {
         internal readonly NET_RECORDFILE_INFO Original;
@@ -29,7 +29,7 @@ namespace Dahua.Api.Data
                 starttime = NET_TIME.FromDateTime(date),
                 endtime = NET_TIME.FromDateTime(date.AddSeconds(duration)),
                 filename = nameArr,
-                size = size,
+                size = size / 1024,
             };
         }
 
@@ -68,6 +68,6 @@ namespace Dahua.Api.Data
         /// <value>
         /// The size.
         /// </value>
-        public uint Size => Original.size;
+        public uint Size => Original.size * 1024;
     }
 }

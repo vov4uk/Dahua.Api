@@ -26,11 +26,11 @@
         /// </summary>
         public int nRtpEndPort;
         /// <summary>
-        /// Rtsp Over Http enabled
+        /// RTSP Over Http enabled
         /// </summary>
         public bool bHttpEnable;
         /// <summary>
-        /// RtspOverHttp port
+        /// RTSP OverHttp port
         /// </summary>
         public int nHttpPort;
     }

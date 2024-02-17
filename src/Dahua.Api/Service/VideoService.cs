@@ -33,7 +33,7 @@ namespace Dahua.Api.Service
         /// <summary>
         /// Download back adjustment
         /// </summary>
-        private fDownLoadPosCallBack downLoadFun;
+        private readonly fDownLoadPosCallBack downLoadFun;
 
         /// <summary>
         /// The session
@@ -103,7 +103,11 @@ namespace Dahua.Api.Service
                 pBoxInfo = IntPtr.Zero;
             }
 
-            return nriFileInfo.Where(x => x.filename?.Length > 0 ).Select(x => new RemoteFile(x)).ToList();
+            return nriFileInfo
+                .Where(x => x.filename?.Length > 0)
+                .Select(x=> new RemoteFile(x))
+                .Where(y => y.Duration > 0) // if Duration == 0; invalid file, stuck while downloading
+                .ToList();
         }
 
         /// <summary>
@@ -121,8 +125,7 @@ namespace Dahua.Api.Service
                 strFileName += ".mp4";
             }
 
-            var remoteFile = file as RemoteFile;
-            if (remoteFile != null)
+            if (file is RemoteFile remoteFile)
             {
                 fileInfo = remoteFile.Original;
             }
@@ -137,7 +140,7 @@ namespace Dahua.Api.Service
                 };
             }
 
-           return SdkHelper.InvokeSDK(() => CLIENT_DownloadByRecordFile(session.UserId, ref fileInfo, strFileName, downLoadFun, IntPtr.Zero));
+            return SdkHelper.InvokeSDK(() => CLIENT_DownloadByRecordFile(session.UserId, ref fileInfo, strFileName, downLoadFun, IntPtr.Zero));
         }
 
         /// <summary>

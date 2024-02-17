@@ -17,7 +17,7 @@
         /// </summary>
         public const string CFG_CMD_RTSP = "RTSP";
         /// <summary>
-        /// ecording storage point mapping configuration (corresponding to NET_A_CFG_RECORDTOSTORAGEPOINT_INFO)
+        /// encoding storage point mapping configuration (corresponding to NET_A_CFG_RECORDTOSTORAGEPOINT_INFO)
         /// </summary>
         public const string CFG_CMD_RECORD_STORAGEPOINT = "RecordStoragePoint";
         /// <summary>

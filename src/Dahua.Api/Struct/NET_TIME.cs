@@ -44,7 +44,7 @@ namespace Dahua.Api.Struct
         /// Converts to datetime.
         /// </summary>
         /// <returns></returns>
-        public DateTime ToDateTime()
+        public readonly DateTime ToDateTime()
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Dahua.Api.Struct
         }
 
         /// <summary>
-        /// Froms the date time.
+        /// From the date time.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <returns></returns>

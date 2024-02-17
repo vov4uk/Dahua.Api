@@ -1,6 +1,6 @@
 # Dahua.Api
 * Available as [nuget](https://www.nuget.org/packages/Dahua.Api/) 
-* `dotnet add package Dahua.Api --version 1.0.0`
+* `dotnet add package Dahua.Api --version 1.0.1`
 
 * [![NuGet Downloads](https://img.shields.io/nuget/dt/Dahua.Api.svg)](https://www.nuget.org/packages/Dahua.Api/)
 
