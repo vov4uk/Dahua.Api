@@ -11,10 +11,10 @@
         <RepositoryUrl>https://github.com/vov4uk/Dahua.Api.git</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Description>Wrapper over Dahua NetSDK (v3.057.0000000.0.R.230309, win-x64). It allows login, fetch videso list, download, get config list and more.</Description>
-        <AssemblyVersion>1.0.1</AssemblyVersion>
-        <FileVersion>1.0.1</FileVersion>
-        <Version>1.0.1</Version>
+        <Description>Wrapper over Dahua NetSDK (V3.060.0000003.0.R.251202, win-x64). It allows login, fetch videso list, download, get config list and more.</Description>
+        <AssemblyVersion>1.0.2</AssemblyVersion>
+        <FileVersion>1.0.2</FileVersion>
+        <Version>1.0.2</Version>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>logo.png</PackageIcon>
         <NoWarn>NU5100;CS0649</NoWarn>
@@ -48,6 +48,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="DahuaSDK\IvsDrawer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DahuaSDK\play.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="DahuaSDK\StreamConvertor.dll">

@@ -308,7 +308,10 @@ namespace Dahua.Api.Helpers
                     {
                         if (throwException)
                         {
-                            throw CreateException(func.ToString());
+                            string method = func.Body is MethodCallExpression methodCall
+                                ? methodCall.Method.Name
+                                : func.Body.ToString();
+                            throw CreateException(method);
                         }
                         return result;
                     }
@@ -320,8 +323,10 @@ namespace Dahua.Api.Helpers
         {
             EM_ErrorCode lastErrorCode = CLIENT_GetLastError();
             en_us_String.TryGetValue(lastErrorCode, out string desc);
-            string msg = desc ?? lastErrorCode.ToString();
-            return new DahuaApiException(method, msg);
+            string msg = lastErrorCode == EM_ErrorCode.NET_NOERROR
+                ? "The SDK did not provide an error reason (CLIENT_GetLastError returned NET_NOERROR)"
+                : desc ?? lastErrorCode.ToString();
+            return new DahuaApiException(method, msg, (uint)lastErrorCode);
         }
 
 

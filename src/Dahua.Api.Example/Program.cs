@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.IO;
-using System.Threading.Tasks;
-using Dahua.Api;
+﻿using Dahua.Api;
 
-var host = "192.168.1.63";
+var host = "192.168.1.68";
 var port = 37777;
 var user = "admin";
 var password = "password";

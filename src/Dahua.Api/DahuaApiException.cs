@@ -21,14 +21,40 @@ namespace Dahua.Api
         public string ErrorMessage { get; } = string.Empty;
 
         /// <summary>
+        /// Gets the SDK error code, when available.
+        /// </summary>
+        public uint? ErrorCode { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DahuaApiException" /> class.
         /// </summary>
         /// <param name="method">The method.</param>
         /// <param name="errorMessage">The error message.</param>
         public DahuaApiException(string method, string errorMessage)
-            : base(method)
+            : this(method, errorMessage, null)
+        {
+        }
+
+        internal DahuaApiException(string method, string errorMessage, uint errorCode)
+            : this(method, errorMessage, (uint?)errorCode)
+        {
+        }
+
+        private DahuaApiException(string method, string errorMessage, uint? errorCode)
+            : base(CreateMessage(method, errorMessage, errorCode))
         {
             ErrorMessage = errorMessage;
+            ErrorCode = errorCode;
+        }
+
+        private static string CreateMessage(string method, string errorMessage, uint? errorCode)
+        {
+            if (!errorCode.HasValue)
+            {
+                return method;
+            }
+
+            return $"{errorMessage} (SDK error 0x{errorCode.Value:X8}){Environment.NewLine}SDK call: {method}";
         }
 
         /// <summary>
@@ -39,6 +65,11 @@ namespace Dahua.Api
         /// </returns>
         public override string ToString()
         {
+            if (ErrorCode.HasValue)
+            {
+                return base.ToString();
+            }
+
             return $"{ErrorMessage}{Environment.NewLine}{base.ToString()}";
         }
 
