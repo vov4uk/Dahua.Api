@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using Dahua.Api.Abstractions;
@@ -116,13 +117,25 @@ namespace Dahua.Api.Service
         /// <param name="file">The file.</param>
         /// <param name="destinationPath">The path.</param>
         /// <returns></returns>
+        /// <exception cref="DirectoryNotFoundException">The destination folder does not exist.</exception>
         public long StartDownloadFile(IRemoteFile file, string destinationPath)
         {
+            if (destinationPath == null)
+            {
+                throw new ArgumentNullException(nameof(destinationPath));
+            }
+
             NET_RECORDFILE_INFO fileInfo = default;
             var strFileName = destinationPath.ToLower();
             if (!strFileName.EndsWith(".mp4"))
             {
                 strFileName += ".mp4";
+            }
+
+            string destinationFolder = Path.GetDirectoryName(Path.GetFullPath(strFileName));
+            if (!Directory.Exists(destinationFolder))
+            {
+                throw new DirectoryNotFoundException($"The destination folder '{destinationFolder}' does not exist. Create the folder or provide a valid destination path.");
             }
 
             if (file is RemoteFile remoteFile)
